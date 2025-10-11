@@ -1,0 +1,33 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Prueba commit",
+  "homepage": "https://github.com/edwinquenguan/node-Api#readme",
+  "bugs": {
+    "url": "https://github.com/edwinquenguan/node-Api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwinquenguan/node-Api.git"
+  },
+  "license": "ISC",
+  "author": "edwinquenguan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
+  }
+}
