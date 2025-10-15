@@ -346,14 +346,21 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:   
                     
-                    ⦿  se elimina una base de datos si existe 
-                        se crea un esquema de base de datos
-                        se usa el esquema de base de datos
-                        se crea una tabla de usuario
-                        col
+                    ⦿   se elimina una base de datos, si existe 
 
-                        .
+                    ⦿   se crea un esquema de base de datos
 
+                    ⦿   se usa el esquema de base de datos
+
+                    ⦿    se crea una tabla de usuarios
+
+                    ⦿   se insertan datos en la tabla de usuarios
+                         utilizando 8 campos (id, nombre, apellido, email, password, telefono, image, rol, fecha_creacion , fecha_actualizacion)
+
+                       
+                        
+
+                        
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
                     A.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.

@@ -19,11 +19,11 @@
         
         INSERT INTO users VALUES (
               null,
-              "Albeiro",
-              "Ramos",
-              "profealbeiro2020@gmail.com",
+              "Edwin",
+              "Quenguan",
+              "ewinquenguan14@gmail.com",
               "$2b$10$NR8eRuuAB12JoHe81ZYnG.i2/5k/D5TKrxc7Pk74W4rgzADdABM9G",
-              "3103103101",
+              "3223462378",
                            "profile",
                            "admin",
                            null,
