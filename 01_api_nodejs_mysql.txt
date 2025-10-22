@@ -344,27 +344,19 @@
 
                 ┌ --------------------------------------------------------------------------------------------------------------------------------------- ┐
                 |                                                                                                                                         |
-                  EXPLICACIÓN:   
-                    
-                    ⦿   se elimina una base de datos, si existe 
+                  EXPLICACIÓN: 
 
-                    ⦿   se crea un esquema de base de datos
-
-                    ⦿   se usa el esquema de base de datos
-
-                    ⦿    se crea una tabla de usuarios
-
-                    ⦿   se insertan datos en la tabla de usuarios
-                         utilizando 8 campos (id, nombre, apellido, email, password, telefono, image, rol, fecha_creacion , fecha_actualizacion)
-
-                       
-                        
-
-                        
+                    ⦿    Este script crea una base de datos MySQL llamada db_node, define una tabla users con varios campos relevantes para un sistema de autenticación, 
+                         e inserta un usuario de ejemplo con rol de administrador.   
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-                    B.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                    A.   se elimina una base de datos, si existe 
+                    B.   se crea un esquema de base de datos
+                    C.   se usa el esquema de base de datos
+                    D.   se crea una tabla de usuarios
+                    E.   se insertan datos en la tabla de usuarios
+                        utilizando 8 campos (id, nombre, apellido, email, password, telefono, image, rol, fecha_creacion , fecha_actualizacion)
+
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -408,13 +400,18 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:   
                     
-                    ⦿  XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                    ⦿  el archivo .env contienen información  como credenciales de base de datos y claves secretas.
+                        que permiten configurar la aplicación sin exponer datos sensibles (contraseñas) directamente en el código fuente.
+                  
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-                    B.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-                |                                                                                                                                         |
+                    A.  Dirección del servidor de base de datos. En este caso, el servidor está en la misma máquina (localhost).
+                    B.  Usuario con el que se accede a la base de datos. root es el administrador por defecto en MySQL 
+                    C.  Contraseña del usuario de base de datos. En este caso está vacía.  
+                    D.  Nombre de la base de datos que se usará en el proyecto.
+                    E.  Puerto estándar de MySQL.
+                    F.  Clave secreta para generar y verificar tokens JWT (JSON Web Token).                                                |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -440,12 +437,16 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:   
                     
-                    ⦿  XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                    ⦿   Configura la conexión a una base de datos MySQL utilizando el módulo mysql y variables de entorno almacenadas en un archivo .env.
+                         Esto permite proteger datos sensibles, como contraseñas y nombres de usuario.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-                    B.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                    A.   Carga las variables de entorno definidas en el archivo .env al entorno de Node.js (process.env).
+                    B.   Importa el módulo mysql, que permite conectar Node.js con una base de datos MySQL.
+                    C.   Crea una conexión a la base de datos utilizando las variables de entorno para los parámetros de conexión (host, usuario, contraseña, nombre de la base de datos y puerto).
+                    D.   Establece la conexión. Si ocurre un error, se lanza una excepción. Si la conexión es exitosa, se imprime un mensaje en la consola.
+
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -467,7 +468,7 @@
                      11             } else {
                      12                 console.log('Usuarios encontrados: ', users.length);
                      13                 result(null, users);
-                     14             }
+                     14             }   
                      15         });
                      16     };
                      17
@@ -505,7 +506,7 @@
                      49         const role = validRoles.includes(user.role) ? user.role : 'user';
                      50         const sql = `INSERT INTO users(
                      51                         name, 
-                     52                         lastname,
+                     52                         lastname,   
                      53                         email, 
                      54                         password,
                      55                         phone,
@@ -608,13 +609,14 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:   
                     
-                    ⦿  XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                    ⦿  Este archivo define el modelo de usuarios  utilizando MySQL como base de datos y bcryptjs para encriptación de contraseñas.
+                        Contiene todas las funciones básicas para interactuar con la tabla users: listar, buscar, crear, actualizar y eliminar usuarios.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-                    B.   XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
-                |                                                                                                                                         |
+                    A.   Importa el objeto o módulo de configuración de la base de datos, que proporciona el método para ejecutar consultas (db.query).
+                    B.   El modelo proporciona tres métodos para consultar usuarios, manteniendo un estricto control sobre la exposición de datos sensibles:
+                                                                                                                                    |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
