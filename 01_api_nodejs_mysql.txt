@@ -455,9 +455,31 @@
 |-- 04.03.  Codificar el modelo usuarios en 'backend/models/user.js': ---------------------------------------------------------------------------------------------------|
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
+
+                     ┌ --------------------------------------------------------------------------------------------------------------------------------------- ┐
+                |                                                                                                                                         |
+                  EXPLICACIÓN:   
+                    
+                    ⦿  Este archivo define el modelo de usuarios  utilizando MySQL como base de datos y bcryptjs para encriptación de contraseñas.
+                        Contiene todas las funciones básicas para interactuar con la tabla users: listar, buscar, crear, actualizar y eliminar usuarios.
+
+                |---------------------------------------------------------------------------------------------------------------------------------------- |
                       1     const db = require('../config/config');
                       2     const bcrypt = require('bcryptjs');
                       3     const User = {};
+
+                      Le estás diciendo a tu código:
+                      Trae la configuración de la base de datos para poder enviar consultas SQL (leer, insertar, actualizar o eliminar datos).
+
+                      Carga el archivo que está en la carpeta config, que se encuentra un nivel arriba (../), y que se llama config.js.
+                       En Node.js, require() se usa para importar módulos o archivos.
+                       Puede ser un módulo interno de Node, uno externo (como bcrypt o express), o un archivo que tú mismo hayas creado.
+
+
+                          A.   Importa el objeto o módulo de configuración de la base de datos, que proporciona el método para ejecutar consultas (db.query).
+                    B.   El modelo proporciona tres métodos para consultar usuarios, manteniendo un estricto control sobre la exposición de datos sensibles:
+                                                                                                                                    |
+                └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
                       4
                       5     User.findAll = (result) => {
                       6         const sql = `SELECT id, email, name, lastname, phone, image, role, created_at, updated_at FROM users`;
@@ -471,6 +493,10 @@
                      14             }   
                      15         });
                      16     };
+                          
+                          Esta función se conecta a la base de datos, ejecuta una consulta SQL que trae todos los usuarios, y luego devuelve esos datos (o un error si algo falla)
+
+
                      17
                      18     User.findById = (id, result) => {
                      19         const sql = `SELECT id, email, name, lastname, image, phone, role, password FROM users WHERE id = ?`;
@@ -605,19 +631,9 @@
                     148
                     149     module.exports = User;
 
-                ┌ --------------------------------------------------------------------------------------------------------------------------------------- ┐
-                |                                                                                                                                         |
-                  EXPLICACIÓN:   
-                    
-                    ⦿  Este archivo define el modelo de usuarios  utilizando MySQL como base de datos y bcryptjs para encriptación de contraseñas.
-                        Contiene todas las funciones básicas para interactuar con la tabla users: listar, buscar, crear, actualizar y eliminar usuarios.
-
-                |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   Importa el objeto o módulo de configuración de la base de datos, que proporciona el método para ejecutar consultas (db.query).
-                    B.   El modelo proporciona tres métodos para consultar usuarios, manteniendo un estricto control sobre la exposición de datos sensibles:
-                                                                                                                                    |
-                └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
+                
+                
 
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |-- 04.04.  Codificar la key en 'backend/config/keys.js': ---------------------------------------------------------------------------------------------------------------|
